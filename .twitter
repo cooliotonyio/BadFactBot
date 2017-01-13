@@ -1,0 +1,4 @@
+[app]
+rule = @BadFactBot
+account_screen_name = BadFactBot
+account_user_id = 817595515332272129

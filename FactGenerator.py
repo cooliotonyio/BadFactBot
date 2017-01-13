@@ -12,14 +12,6 @@ def retrieve_fact(): #returns single entry dict with key=subject and value=conte
 			file.write('')
 	return eval(f)
 
-def trim_fact(fact):
-	sentence = ''
-	for char in fact:
-		sentence+=char
-		if char == '.':
-			break
-	return sentence
-
 def create_fact(topic=None):
 	while not topic:
 		topic = list(retrieve_fact().keys())[0]
@@ -30,8 +22,6 @@ def create_fact(topic=None):
 			fact+=topic
 		else:
 			fact+=tidbit
-	if len(fact) >120:
-		fact=trim_fact(fact)
-	if len(fact) >120:
-		fact = create_fact()
+	if len(fact) > 140: #trims the fact
+                fact = fact[0:136] + '...'
 	return fact
