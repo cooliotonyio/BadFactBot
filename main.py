@@ -12,6 +12,7 @@ api = tweepy.API(auth)
 for i in range(6):
 	line = FactGenerator.create_fact()
 	print('*'*20)
+	print(time.strftime("%D %H:%M%PM"))
 	print('Tweeting:')
 	print(line)
 	api.update_status(line)

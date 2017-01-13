@@ -21,7 +21,7 @@ def trim_fact(fact):
 	return sentence
 
 def create_fact(topic=None):
-	if not topic:
+	while not topic:
 		topic = list(retrieve_fact().keys())[0]
 	content= list(retrieve_fact().values())[0]
 	fact = ''
