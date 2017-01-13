@@ -20,8 +20,6 @@ def trim_fact(fact):
 			break
 	return sentence
 
-
-
 def create_fact(topic=None):
 	if not topic:
 		topic = list(retrieve_fact().keys())[0]
@@ -32,8 +30,8 @@ def create_fact(topic=None):
 			fact+=topic
 		else:
 			fact+=tidbit
-	if len(fact) >100:
+	if len(fact) >120:
 		fact=trim_fact(fact)
-	if len(fact) >100:
+	if len(fact) >120:
 		fact = create_fact()
 	return fact
