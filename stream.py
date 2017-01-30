@@ -3,6 +3,7 @@ import FactGenerator
 import keys
 import tweepy
 import configparser
+import time
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
@@ -49,12 +50,17 @@ class FactRequest(StreamListener):
 				#check if repsonse is over 140 char
 				if len(replyText) > 140:
 				    replyText = replyText[0:139] + '…'
+				print("*"*50)
 				print('Tweet ID: ' + tweetId)
 				print('From: ' + screenName)
+				print("Timestamp:",time.strftime("%D %H:%M%P"))
 				print('Tweet Text: ' + tweetText)
-				print('Reply Text: ' + replyText)
+				print("*"*50)
+				print('Reply Text: ' + replyText[0:139])
 			except:
 				print('Something went wrong with encoding print messages')
+			print("*"*50)
+			print("Waiting for next fact request...")
 
 			# If rate limited, the status posts should be queued up and sent on an interval
 			twitterApi.update_status(status=replyText, in_reply_to_status_id=tweetId)
